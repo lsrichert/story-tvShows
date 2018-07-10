@@ -1,5 +1,5 @@
 const songPrinter = require("./songsPrintToDom");
-// const userDatabaseHandler = require("./userDatabaseHandler");
+const songsDatabaseHandler = require("./songsDatabaseHandler");
 
 $("#songs-container").on("click", "#songs-button", () => {
     const songInput = $("#song-input").val();
