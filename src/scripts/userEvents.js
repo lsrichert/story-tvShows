@@ -1,6 +1,7 @@
 const userPrinter = require("./userPrintToDom");
+const userDatabaseHandler = require("./userDatabaseHandler");
 
-$("#users-container").on("click", "#login-button", () => {
+$("#login-container").on("click", "#login-button", () => {
     const userNameInput = $("#userName-input").val();
     const userName = {
         userName: userNameInput,
