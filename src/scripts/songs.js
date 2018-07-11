@@ -6,7 +6,7 @@ addSong.buildSongForm();
 const printOnPageLoad = () => {
     $.ajax("http://localhost:3000/songs")
         .then((songs) => {
-            printer.printUsers(songs);
+            songPrinter.printSong(songs);
         })
 }
 

@@ -1,19 +1,28 @@
 const songPrinter = require("./songsPrintToDom");
 const songsDatabaseHandler = require("./songsDatabaseHandler");
+const addSong = require("./songsBuilder");
 
-$("#songs-container").on("click", "#songs-button", () => {
-    const songInput = $("#song-input").val();
-    const song = {
-        songTitle: songTitleInput,
-        userId: userData()
+$("#addSong-button").on("click", () => {
+    addSong.buildSongForm();
+})
+$("#songs-container").on("click", "#saveSong-button", () => {
+    const songTitleInput = $("#song-input").val();
+    const songAlbumInput = $("#song-input").val();
+    const songArtistInput = $("#song-input").val();
+    const mySong = {
+        title: songTitleInput,
+        album: songAlbumInput,
+        artist: songArtistInput,
     }
-    userDatabaseHandler.postEvent(song)
-    .then(response => {
-        $("song-input").val("").attr("placeholder", "Song")
-        console.log(response);
-        return songDatabaseHandler.getAllUsers()
+    songsDatabaseHandler.postSong(song)
+    .then((songInfo) => {
+        $("#songTitle-input").val("").attr("placeholder", "Title")
+        $("#songAlb-input").val("").attr("placeholder", "Album")
+        $("#songArt-input").val("").attr("placeholder", "Artist")
+        console.log(songInfo);
+        return songsDatabaseHandler.getAllSongs()
     })
-    .then(userArray => {
-        userPrinter.printUser(userArray)
+    .then(songArray => {
+        songPrinter.printSongs(songArray)
     })
 })

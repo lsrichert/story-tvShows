@@ -5,9 +5,9 @@ $("#login-container").on("click", "#login-button", () => {
     const userNameInput = $("#userName-input").val();
     const userName = {
         userName: userNameInput,
-        userId: userData()
+        // userId: userData()
     }
-    userDatabaseHandler.postEvent(userName)
+    userDatabaseHandler.postUser(userName)
     .then(response => {
         $("userName-input").val("").attr("placeholder", "User")
         console.log(response);

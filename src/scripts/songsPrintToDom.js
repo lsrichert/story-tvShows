@@ -1,11 +1,14 @@
 const songPrinter = Object.create({}, {
-    printSong: {
+    printSongs: {
         value: function (songArray) {
             $("#songs-container").empty();
             songArray.forEach((song) => {
                 const $songsDiv = $("<div>").attr("id", song.id)
-                $("<p>").text(user.userName).appendTo($songsDiv);
-                $("<button>").text("Song Title").addClass("songs-button").appendTo($songsDiv);
+                $("<p>").text(song.title).appendTo($songsDiv);
+                $("<p>").text(song.album).appendTo($songsDiv);
+                $("<p>").text(song.artist).appendTo($songsDiv);
+                $("<button>").text("Edit Song").addClass("edit-btn").appendTo($songsDiv);
+                $("<button>").text("Delete Song").addClass("delete-btn").appendTo($songsDiv);
                 $($songsDiv).appendTo("#songs-container");
             })
         }
