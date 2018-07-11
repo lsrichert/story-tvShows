@@ -1,7 +1,6 @@
-const addSong = require("./songsBuilder");
 const songPrinter = require("./songsPrintToDom");
-
-addSong.buildSongForm();
+// I commented out this code because calling this function here causes the 'add song' form to load before the 'add song' button is clicked.
+// addSong.buildSongForm();
 
 const printOnPageLoad = () => {
     $.ajax("http://localhost:3000/songs")
