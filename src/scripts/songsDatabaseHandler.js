@@ -20,6 +20,14 @@ const songsDatabaseHandler = Object.create({}, {
             })
         }
     },
+    deleteSong: {
+        value: (id) => {
+            return $.ajax({
+                url: `http://localhost:3000/songs/${id}`,
+                method: "DELETE",
+            })
+        }
+    },
     putSong: {
         value: (id) => {
             return $.ajax({
@@ -31,14 +39,6 @@ const songsDatabaseHandler = Object.create({}, {
                     artist: updateSong.artist,
                     userID: updateSong.userID
                 }
-            })
-        }
-    },
-    deleteSong: {
-        value: (id) => {
-            return $.ajax({
-                url: `http://localhost:3000/songs/${id}`,
-                method: "DELETE"
             })
         }
     }

@@ -2,9 +2,11 @@ const songsDatabaseHandler = require("./songsDatabaseHandler");
 const songPrinter = require("./songsPrintToDom");
 const addSong = require("./songsBuilder");
 
+// click the new song button to load the add song form
 $("#newSong-button").on("click", () => {
     addSong.buildSongForm();
 })
+// event handler for when the save button is clicked to save a new song
 $("#songs-container").on("click", "#save-button", () => {
     const songTitleInput = $("#songTitle-input").val();
     const songAlbumInput = $("#songAlbum-input").val();
@@ -14,6 +16,7 @@ $("#songs-container").on("click", "#save-button", () => {
         album: songAlbumInput,
         artist: songArtistInput,
     }
+    // post the new song to the database
     songsDatabaseHandler.postSong(mySong)
     .then((songInfo) => {
         $("#songTitle-input").val("").attr("placeholder", "Song Title")
@@ -23,9 +26,17 @@ $("#songs-container").on("click", "#save-button", () => {
         return songsDatabaseHandler.getAllSongs()
     })
     .then(songArray => {
-        songPrinter.printSongs(songArray)
+        songPrinter.printSong(songArray)
     })
 })
-// $("songs-container").on("click", "save-button", () => {
-// const songID = event.target.parentNode.id
-// })
+// delete button event handler
+$("songs-container").on("click", ".delete-button", () => {
+    const songID = $(event.target).parent().attr("id")
+    songsDatabaseHandler.deleteSong(songID)
+    .then(() => {
+        return songsDatabaseHandler.getAllSongs()
+    })
+    .then((songArray) => {
+        songPrinter.printSong(songArray)
+    })
+})

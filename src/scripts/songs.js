@@ -4,8 +4,8 @@ const songPrinter = require("./songsPrintToDom");
 
 const printOnPageLoad = () => {
     $.ajax("http://localhost:3000/songs")
-        .then((songs) => {
-            songPrinter.printSong(songs);
+        .then((song) => {
+            songPrinter.printSong(song);
         })
 }
 

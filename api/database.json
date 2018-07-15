@@ -7,22 +7,16 @@
       "id": 1
     },
     {
-      "title": "f",
-      "album": "f",
-      "artist": "f",
+      "title": "hello",
+      "album": "Adele",
+      "artist": "Adele",
       "id": 2
     },
     {
-      "title": "this song",
-      "album": "this album",
-      "artist": "some artist",
+      "title": "any song",
+      "album": "any album",
+      "artist": "any artist",
       "id": 3
-    },
-    {
-      "title": "s",
-      "album": "s",
-      "artist": "sd",
-      "id": 4
     }
   ]
 }
