@@ -1,5 +1,28 @@
 {
-    "users": [],
-    "songs": []
-
+  "songs": [
+    {
+      "title": "angela",
+      "album": "cleopatra",
+      "artist": "lumineers",
+      "id": 1
+    },
+    {
+      "title": "f",
+      "album": "f",
+      "artist": "f",
+      "id": 2
+    },
+    {
+      "title": "this song",
+      "album": "this album",
+      "artist": "some artist",
+      "id": 3
+    },
+    {
+      "title": "s",
+      "album": "s",
+      "artist": "sd",
+      "id": 4
+    }
+  ]
 }
